@@ -7,9 +7,10 @@ class FileCloudBase(object):
     def build_url(url, query):
         for indx, key in enumerate(query):
             if indx == 0:
-                url += "/?{}={}".format(key, query[key])
+                url += "?{}={}".format(key, query[key])
             else:
                 url += "&{}={}".format(key, query[key])
+        return url
 
     @staticmethod
     def authenticated(func):

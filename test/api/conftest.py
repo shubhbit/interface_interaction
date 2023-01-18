@@ -1,12 +1,13 @@
 import pytest
 from app.api.filecloud import FileCloud
+from utils.helper import *
 
-@pytest.fixture
-def init_test(scope="session", autouse=True):
-    print("fixture called....")
-    if not hasattr(pytest, "file_client"):
-        pytest.file_client = dict()
-    pytest.file_client["admin"] = FileCloud().get_instance("admin")
-    pytest.file_client["user"] = FileCloud().get_instance("user")
+
+@pytest.fixture(scope="session", autouse=True)
+def setup():
+    if not hasattr(pytest, "client"):
+        pytest.client = dict()
+    pytest.client["admin"] = FileCloud().get_instance("admin")
+    pytest.client["user"] = FileCloud().get_instance("user")
     yield
     del pytest.client
