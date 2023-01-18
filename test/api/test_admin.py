@@ -27,5 +27,10 @@ class TestAdmin:
     def test_user_creation_deletion(self):
         pytest.client["admin"].login_admin(
             user, password)
-        response = pytest.client["admin"].create_user(*list(get_user_data().values()))
+        user_data = get_user_data()
+        response = pytest.client["admin"].create_user(*list(user_data.values()))
+        print(response.text)
         assert response.status_code == 200
+        delete_res = pytest.client["admin"].delete_user(user_data['username'])
+        print(delete_res.status_code)
+        assert delete_res.status_code == 200
