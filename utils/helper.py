@@ -5,7 +5,7 @@ import random
 
 
 def get_random_string(length):
-    possible = string.ascii_letters + string.digits
+    possible = string.ascii_lowercase
     return "".join([random.choice(possible) for i in range(length)])
 
 
@@ -48,3 +48,6 @@ def get_user_creation_url():
 
 def get_delete_user_url():
     return config_dict.get("base_url")+config_dict.get("user_deletion_url")
+
+def get_user_login_url():
+    return config_dict.get("base_url")+config_dict.get("user_login_url")

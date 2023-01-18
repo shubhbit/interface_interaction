@@ -30,6 +30,6 @@ class FileCLoudAdmin(FileCloudBase):
     @FileCloudBase.authenticated
     def delete_user(self, profile):
         delete_user_url = get_delete_user_url()
-        delete_user_query_url = self.build_url(delete_user_url, locals())
+        delete_user_query_url = self.build_url(delete_user_url, {"profile": profile})
         response = requests.post(delete_user_query_url, cookies=self.cookies)
         return response
