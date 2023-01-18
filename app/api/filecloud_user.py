@@ -1,0 +1,2 @@
+class FileCloudUser:
+    pass

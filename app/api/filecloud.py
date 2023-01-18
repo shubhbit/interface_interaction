@@ -1,5 +1,5 @@
-from filecloud_admin import FileCLoudAdmin
-from filecloud_user import FileCloudUser
+from app.api.filecloud_admin import FileCLoudAdmin
+from app.api.filecloud_user import FileCloudUser
 
 
 class FileCloud(object):
