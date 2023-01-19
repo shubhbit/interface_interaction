@@ -53,7 +53,6 @@ def get_user_login_url():
     return config_dict.get("base_url")+config_dict.get("user_login_url")
 
 def get_ui_base_url():
-    print("dict: ", config_dict)
     return config_dict.get("ui_base_url")
 
 def get_ui_username():
